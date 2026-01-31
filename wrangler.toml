@@ -1,0 +1,31 @@
+name = "ai-workflow-engine"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+node_compat = true
+
+[observability]
+enabled = true
+
+# Workers AI binding
+[[ai]]
+binding = "AI"
+
+# KV namespace for configuration caching
+[[kv_namespaces]]
+binding = "CONFIG"
+id = "" # Add your KV namespace ID after creation
+
+# Environment variables (non-sensitive)
+[vars]
+PROJECT_NAME = "Heady"
+ENVIRONMENT = "production"
+API_VERSION = "v1"
+
+# Secrets (add via: wrangler secret put SECRET_NAME)
+# DATABASE_URL - PostgreSQL connection from Render
+# REDIS_URL - Redis connection from Render  
+# GITHUB_TOKEN - Personal access token for Gist API
+# GIST_ID - GitHub Gist ID for configuration
+
+[build]
+command = "npm run build"
